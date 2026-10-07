@@ -28,10 +28,10 @@ Full topic lists live in [`Development.md`](Development.md).
 
 ### Week 01 - Spring Core & Boot Foundations
 
-- [ ] **D001 · The Spring container** (2026-10-05, Mon)
+- [x] **D001 · The Spring container** (2026-10-05, Mon)
     - Build: Scaffold the practice service and wire a service layer through the container
     - Done when: Zero `new` for services; you can explain what the container builds at startup
-- [ ] **D002 · Dependency injection** (2026-10-06, Tue)
+- [x] **D002 · Dependency injection** (2026-10-06, Tue)
     - Build: Refactor to constructor injection everywhere
     - Done when: No `@Autowired` on fields
 - [ ] **D003 · Bean lifecycle & scopes** (2026-10-07, Wed)
