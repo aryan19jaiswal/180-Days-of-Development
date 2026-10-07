@@ -34,7 +34,7 @@ Full topic lists live in [`Development.md`](Development.md).
 - [x] **D002 · Dependency injection** (2026-10-06, Tue)
     - Build: Refactor to constructor injection everywhere
     - Done when: No `@Autowired` on fields
-- [ ] **D003 · Bean lifecycle & scopes** (2026-10-07, Wed)
+- [x] **D003 · Bean lifecycle & scopes** (2026-10-07, Wed)
     - Build: Custom `BeanPostProcessor` that times bean init
     - Done when: You can narrate the full lifecycle from memory
 - [ ] **D004 · Spring Boot, demystified** (2026-10-08, Thu)
