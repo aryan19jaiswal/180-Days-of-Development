@@ -1,6 +1,7 @@
 package com._daysOfBatman.SpringBootPractice.Orders;
 
 import com._daysOfBatman.SpringBootPractice.Notifications.NotificationSender;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +9,7 @@ import java.time.Clock;
 import java.time.Instant;
 import java.util.List;
 
+@Slf4j
 @Service
 public class OrderService {
 
@@ -31,6 +33,7 @@ public class OrderService {
     }
 
     public List<String> listOrders() {
+        log.info("SERVICE listOrders");
         return orderRepository.findAll();
     }
 
