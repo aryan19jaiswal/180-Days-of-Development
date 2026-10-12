@@ -37,16 +37,16 @@ Full topic lists live in [`Development.md`](Development.md).
 - [x] **D003 · Bean lifecycle & scopes** (2026-10-07, Wed)
     - Build: Custom `BeanPostProcessor` that times bean init
     - Done when: You can narrate the full lifecycle from memory
-- [ ] **D004 · Spring Boot, demystified** (2026-10-08, Thu)
+- [x] **D004 · Spring Boot, demystified** (2026-10-08, Thu)
     - Build: Write your own tiny auto-configuration starter
     - Done when: Your starter auto-configures in a fresh app
-- [ ] **D005 · Configuration & profiles** (2026-10-09, Fri)
+- [x] **D005 · Configuration & profiles** (2026-10-09, Fri)
     - Build: Multi-profile config (local/dev/prod)
     - Done when: App boots correctly under all three profiles
 
 ### Week 02 - Web Layer & API Design
 
-- [ ] **D006 · Spring MVC architecture** (2026-10-12, Mon)
+- [x] **D006 · Spring MVC architecture** (2026-10-12, Mon)
     - Build: Trace one request through the whole chain with logs
     - Done when: You can draw the request lifecycle unaided
 - [ ] **D007 · Building REST controllers** (2026-10-13, Tue)
