@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.Clock;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -32,9 +33,29 @@ public class OrderService {
         this.allSenders = allSenders;
     }
 
-    public List<String> listOrders() {
-        log.info("SERVICE listOrders");
-        return orderRepository.findAll();
+    public List<Order> listOrders(OrderStatus status) {
+        log.info("SERVICE listOrders status={}", status);
+        List<Order> all = orderRepository.findAll();
+        if (status == null) {
+            return all;
+        }
+        return all.stream().filter(o -> o.status() == status).toList();
+    }
+
+    public Optional<Order> findOrder(Long id) {
+        return orderRepository.findById(id);
+    }
+
+    public Order createOrder(String item, OrderStatus status) {
+        return orderRepository.insert(item, status == null ? OrderStatus.CREATED : status);
+    }
+
+    public Optional<Order> updateOrder(Long id, String item, OrderStatus status) {
+        return orderRepository.replace(id, item, status == null ? OrderStatus.CREATED : status);
+    }
+
+    public boolean deleteOrder(Long id) {
+        return orderRepository.deleteById(id);
     }
 
     public String notifyDefault(String orderId) {

@@ -18,8 +18,9 @@ class OrderServiceTest {
     // No Spring: a hand-written fake repository, passed straight to the constructor
     private final OrderRepository fakeRepo = new OrderRepository() {
         @Override
-        public List<String> findAll() {
-            return List.of("Order-X: Test");
+        public List<Order> findAll() {
+            return List.of(new Order(1L, "Test", OrderStatus.CREATED),
+                    new Order(2L, "Shipped Test", OrderStatus.SHIPPED));
         }
     };
 
@@ -27,8 +28,20 @@ class OrderServiceTest {
             new OrderService(fakeRepo, fixedClock, fakeSender, fakeSender, List.of(fakeSender));
 
     @Test
-    void listOrdersDelegatesToRepository() {
-        assertEquals(List.of("Order-X: Test"), service.listOrders());
+    void listOrdersWithoutFilterReturnsAll() {
+        assertEquals(2, service.listOrders(null).size());
+    }
+
+    @Test
+    void listOrdersFiltersByStatus() {
+        assertEquals(List.of(new Order(2L, "Shipped Test", OrderStatus.SHIPPED)),
+                service.listOrders(OrderStatus.SHIPPED));
+    }
+
+    @Test
+    void createDefaultsStatusToCreated() {
+        OrderService real = new OrderService(new OrderRepository(), fixedClock, fakeSender, fakeSender, List.of(fakeSender));
+        assertEquals(OrderStatus.CREATED, real.createOrder("Cape", null).status());
     }
 
     @Test
